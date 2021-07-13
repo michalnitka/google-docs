@@ -1,5 +1,6 @@
 import Button from "@material-tailwind/react/Button";
 import Icon from "@material-tailwind/react/Icon";
+import { signOut } from "next-auth/client";
 
 function Header() {
   return (
@@ -36,7 +37,7 @@ function Header() {
       </Button>
       <img
         loading="lazy"
-        // onClick={signOut}
+        onClick={signOut}
         className="cursor-pointer h-12 w-12 rounded-full ml-2"
         src={
           "https://michal-nitka-portfolio.netlify.app/static/e09087d44438106576086dc8e9d79aeb/2a4de/12894068debdf32f07fadf2d9091a4b3.png"
