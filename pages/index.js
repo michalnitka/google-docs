@@ -4,8 +4,14 @@ import Image from "next/image";
 import googlePic from "../public/googlePlus.png";
 import Head from "next/head";
 import Header from "../components/Header";
+import Login from "../components/Login";
+import { getSession, useSession } from "next-auth/client";
 
 export default function Home() {
+  const [session] = useSession();
+
+  if (!session) return <Login />;
+
   return (
     <div>
       <Head>
@@ -41,7 +47,15 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section></section>
+      <section className="bg-white px-10">
+        <div className="max-w-3xl mx-auto py-8 text-sm text-gray-700">
+          <div className="flex items-center justify-between pb-5">
+            <h2 className="font-medium flex-grow">Moje dokumenty</h2>
+            <p className="mr-12">Data utworzenia</p>
+            <Icon name="folder" size="3xl" color="gray" />
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
